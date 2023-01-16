@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { animateTypewriter } from '../components/ScrollWheel';
+
 const TypewriterText = styled.div`
   position: relative;
   width: 100%;
@@ -20,7 +21,7 @@ const TypewriterText = styled.div`
   }
 `;
 
-function HeadedText({ title, body }) {
+function HeadedText({ title, body }: { title: string, body: string }) {
     return (
         <div style={{ width: "50%", display: "flex", gap: "50px", flexDirection: "column", alignContent: "space-between", justifyContent: "space-between" }} >
             <h1 className='font-face-gm' style={{ color: "#FFD098", fontSize: "2em" }}>

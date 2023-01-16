@@ -1,6 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
-import RoseIcon from '../assets/CouleurSoleil.png'
+import styled from 'styled-components';
+import RoseIcon from '../assets/CouleurSoleil.png';
 
 const SLogo = styled.div`
     color: #FFD098; 
@@ -25,7 +24,7 @@ const SImg = styled.img`
       
         }
 `
-function Logo({ splash }) {
+function Logo({ splash }: { splash: any }) {
     console.log("🚀 ~ file: logo.tsx:26 ~ Logo ~ splash", splash)
     return (
         <SLogo className={splash ? "splash" : null} style={{}}>

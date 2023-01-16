@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatedRose } from '../assets/AnimatedRose';
-import Logo from '../molecules/logo';
 
-export function SplashScreen({ children }) {
+export function SplashScreen({ children }: { children: any }) {
     const [showSplash, setShowSplash] = useState(true);
 
     useEffect(() => {
