@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { ScrollWheel } from '../components/ScrollWheel'
 import Logo from '../molecules/logo'
+
 export const content = [
   {
     id: 0,
@@ -55,8 +55,6 @@ const SNavbar = styled.div`
 }
 `
 function Navbar({ selectedIndex, setSelectedIdx }) {
-
-
   return (
     <SNavbar style={{}}>
 

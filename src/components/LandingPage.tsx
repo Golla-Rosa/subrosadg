@@ -1,5 +1,4 @@
-import React from 'react'
-import Logo from '../molecules/logo'
+import Logo from '../molecules/logo';
 
 function LandingPage() {
     return (
