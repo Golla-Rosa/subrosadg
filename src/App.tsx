@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 import Logo from './molecules/logo'
 import "./assets/fonts/JosefinSans-Bold.ttf"
 import Navbar, { content } from './organisms/Navbar'
 import HeadedText from './molecules/HeadedText'
-import { ReactP5Wrapper } from 'react-p5-wrapper'
 import styled from 'styled-components'
 import { SplashScreen } from './components/SplashScreen'
 import { ScrollWheel } from './components/ScrollWheel'
@@ -30,7 +28,8 @@ const Content = () => {
         const rect = element.getBoundingClientRect();
         return rect.top >= 0 && rect.top <= window.innerHeight / 2;
       });
-      const currentIdx = content.indexOf(currentSection.id);
+
+      const currentIdx = content.indexOf(content.find(c => c.id === parseInt(currentSection.id)));
       setSelectedIdx(currentIdx);
     }
 

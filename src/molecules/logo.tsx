@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import RoseIcon from '../assets/CouleurSoleil.png'
-
+import Logo from '../assets/Logos/LOGOSUBROSA1.svg';
 const SLogo = styled.div`
     color: #FFD098; 
     display: flex;
