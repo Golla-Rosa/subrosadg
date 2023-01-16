@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "JosefinBold";
+  /*Can be any text*/
+  src: local("JosefinBold"),
+    url("./assets/JosefinSans-VariableFont_wght.ttf") format("truetype");
+}
+
+body {
+  margin: 0px;
+}
+
+@font-face {
+  font-family: "RokkitRegular";
+  /*Can be any text*/
+  src: local("RokkitRegular"),
+    url("./assets/Rokkitt-VariableFont_wght.ttf") format("truetype");
+}
+
+.font-face-gm {
+  font-family: "JosefinBold";
+  font-size: 5em;
+
+}
+
+
+.font-face-rkt {
+  font-family: "RokkitRegular";
+  font-size: 3em;
+}
+
+
+.font-face-rkt-sm {
+  font-family: "RokkitRegular";
+  font-size: 1em;
+}
