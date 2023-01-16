@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import Logo from './molecules/logo'
 import "./assets/fonts/JosefinSans-Bold.ttf"
 import Navbar, { content } from './organisms/Navbar'
 import HeadedText from './molecules/HeadedText'
 import styled from 'styled-components'
 import { SplashScreen } from './components/SplashScreen'
-import { ScrollWheel } from './components/ScrollWheel'
 
 const Container = styled.div`
 @supports (scroll-snap-type: y mandatory) {
@@ -14,7 +12,6 @@ const Container = styled.div`
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
 }
-
 `
 
 const Content = () => {
@@ -28,7 +25,6 @@ const Content = () => {
         const rect = element.getBoundingClientRect();
         return rect.top >= 0 && rect.top <= window.innerHeight / 2;
       });
-
       const currentIdx = content.indexOf(content.find(c => c.id === parseInt(currentSection.id)));
       setSelectedIdx(currentIdx);
     }
@@ -37,24 +33,22 @@ const Content = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
-  return <div>
-
-    <Navbar selectedIndex={selectedIndex} setSelectedIdx={setSelectedIdx} />
-    <div style={{ display: "flex", width: "100%" }}>
-      <Container style={{ scrollSnapType: "mandatory", }}>
-        {
-          content.map((c) =>
-            <div id={`${c.id}`} style={{ scrollSnapAlign: "center", display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-              <HeadedText body={c.body} title={c.title}></HeadedText>
-            </div >)
-        }
-
-
-      </Container>
+  });
+  return (
+    <div>
+      <Navbar selectedIndex={selectedIndex} setSelectedIdx={setSelectedIdx} />
+      <div style={{ display: "flex", width: "100%" }}>
+        <Container style={{ scrollSnapType: "mandatory" }}>
+          {
+            content.map((c) =>
+              <div id={`${c.id}`} style={{ scrollSnapAlign: "center", display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+                <HeadedText body={c.body} title={c.title}></HeadedText>
+              </div>)
+          }
+        </Container>
+      </div>
     </div>
-
-  </div>
+  )
 }
 function App() {
   const [count, setCount] = useState(0)
