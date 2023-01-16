@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Logo from '../assets/Logos/LOGOSUBROSA1.svg';
+import RoseIcon from '../assets/Logos/LOGOSUBROSA1.svg';
 const SLogo = styled.div`
     color: #FFD098; 
     display: flex;
@@ -29,7 +29,6 @@ function Logo({ splash }: { splash: any }) {
     return (
         <SLogo className={splash ? "splash" : null} style={{}}>
             <SImg className={splash ? "splash" : null} src={RoseIcon} />
-
         </SLogo>
     )
 }

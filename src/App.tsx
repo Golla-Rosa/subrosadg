@@ -17,32 +17,31 @@ const Container = styled.div`
 const Content = () => {
   const [selectedIndex, setSelectedIdx] = useState(0);
 
-  useEffect(() => {
-    function handleScroll() {
-      console.log("🚀 ~ file: App.tsx:25 ~ handleScroll ~ handleScroll")
-      const sectionElements = content.map(id => document.getElementById(`${id}`));
-      const currentSection = sectionElements.find(element => {
-        const rect = element.getBoundingClientRect();
-        return rect.top >= 0 && rect.top <= window.innerHeight / 2;
-      });
-      const currentIdx = content.indexOf(content.find(c => c.id === parseInt(currentSection.id)));
+  function handleScroll() {
+    const sectionElements = content.map(c => document.getElementById(c.id));
+    const domSection = sectionElements.find(element => {
+      const rect = element.getBoundingClientRect();
+      return rect.top >= 0 && rect.top <= window.innerHeight / 2;
+    });
+    if (domSection) {
+      const section = content.find(c => c.id === domSection.id);
+      const currentIdx = content.indexOf(section);
       setSelectedIdx(currentIdx);
     }
+  }
 
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+  useEffect(() => {
   });
+
   return (
     <div>
       <Navbar selectedIndex={selectedIndex} setSelectedIdx={setSelectedIdx} />
       <div style={{ display: "flex", width: "100%" }}>
-        <Container style={{ scrollSnapType: "mandatory" }}>
+        <Container style={{ scrollSnapType: "mandatory" }} onScroll={handleScroll}>
           {
             content.map((c) =>
-              <div id={`${c.id}`} style={{ scrollSnapAlign: "center", display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-                <HeadedText body={c.body} title={c.title}></HeadedText>
+              <div key={`${c.id}`} id={`${c.id}`} style={{ scrollSnapAlign: "center", display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+                <HeadedText key={`${c.id}`} body={c.body} title={c.title}></HeadedText>
               </div>)
           }
         </Container>
