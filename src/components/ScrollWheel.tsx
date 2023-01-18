@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 
 const ScrollWheelWrapper = styled.div`
@@ -44,6 +45,9 @@ const ScrollWheelItem = styled.a`
 `;
 
 export function ScrollWheel({ items, selectedIndex, setSelectedIdx }) {
+  useEffect(() => {
+    console.log(selectedIndex)
+  }, [selectedIndex])
   return (
     <ScrollWheelWrapper>
       {items.map((item, index) => (
@@ -51,7 +55,7 @@ export function ScrollWheel({ items, selectedIndex, setSelectedIdx }) {
           key={item.id}
           href={`#${item.id}`}
           onClick={({ target }) => setSelectedIdx(item.id)}
-          className={item.id === selectedIndex ? 'selected font-face-gm' : 'font-face-gm'}
+          className={item.id == selectedIndex ? 'selected font-face-gm' : 'font-face-gm'}
         >
           {item.title}
         </ScrollWheelItem>
