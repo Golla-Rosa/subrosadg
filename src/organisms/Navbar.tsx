@@ -2,7 +2,14 @@ import styled from 'styled-components'
 import { ScrollWheel } from '../components/ScrollWheel'
 import Logo from '../molecules/logo'
 
-export const content = [
+export interface Section {
+  id: string;
+  section: string;
+  title: string;
+  body: string;
+}
+
+export const content: Section[] = [
   {
     id: '0',
     section: 'section-0',
@@ -33,7 +40,6 @@ export const content = [
 ]
 
 const SNavbar = styled.div`
-
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -41,18 +47,19 @@ const SNavbar = styled.div`
   @media (max-width: 1504px) {
     position: fixed;
   }
-@media (min-width: 1504px) {
-  flex-direction: column-reverse;
-  justify-content: center;
-  
-  height: 100vh;
-  margin: 0px;
-  zIndex: 3;
-  background: #010028;
-  position: fixed;
-  display: flex;
-  width: 20%;
-}
+
+  @media (min-width: 1504px) {
+    flex-direction: column-reverse;
+    justify-content: center;
+    
+    height: 100vh;
+    margin: 0px;
+    zIndex: 3;
+    background: #010028;
+    position: fixed;
+    display: flex;
+    width: 20%;
+  }
 `
 function Navbar({ selectedIndex, setSelectedIdx }) {
   return (

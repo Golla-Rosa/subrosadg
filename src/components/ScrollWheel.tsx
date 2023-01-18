@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import styled, { keyframes } from "styled-components";
+import { Section } from "../organisms/Navbar";
 
 const ScrollWheelWrapper = styled.div`
   display: flex;
@@ -41,23 +42,18 @@ const ScrollWheelItem = styled.a`
     opacity: 1;
     margin-left: 50px;
   }
-
 `;
 
-export function ScrollWheel({ items, selectedIndex, setSelectedIdx }) {
-  useEffect(() => {
-    console.log(selectedIndex)
-  }, [selectedIndex])
+export function ScrollWheel({ items, selectedIndex, setSelectedIdx }: { items: Section[], selectedIndex: number, setSelectedIdx: any }) {
   return (
     <ScrollWheelWrapper>
-      {items.map((item, index) => (
+      {items.map((item: Section) => (
         <ScrollWheelItem
           key={item.id}
           href={`#${item.id}`}
-          onClick={({ target }) => setSelectedIdx(item.id)}
-          className={item.id == selectedIndex ? 'selected font-face-gm' : 'font-face-gm'}
-        >
-          {item.title}
+          onClick={() => setSelectedIdx(item.id)}
+          className={item.id === selectedIndex.toString() ? 'selected font-face-gm' : 'font-face-gm'}>
+            {item.title}
         </ScrollWheelItem>
       ))}
     </ScrollWheelWrapper>
