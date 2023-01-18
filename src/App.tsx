@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import "./assets/fonts/JosefinSans-Bold.ttf"
-import Navbar, { content } from './organisms/Navbar'
-import HeadedText from './molecules/HeadedText'
 import styled from 'styled-components'
-import { SplashScreen } from './components/SplashScreen'
+import { SplashScreen } from './atomic/components/SplashScreen'
+import Navbar, { content } from './atomic/organisms/Navbar'
+import HeadedText from './atomic/molecules/HeadedText'
 
 const Container = styled.div`
 @supports (scroll-snap-type: y mandatory) {
