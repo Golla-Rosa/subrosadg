@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { JSXElementConstructor, Key, ReactElement, ReactFragment, ReactPortal, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 
-const ScrollWheelWrapper = styled.div`
+const MenuWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,7 +19,7 @@ const ScrollWheelWrapper = styled.div`
 export const animateTypewriter = keyframes`
  
 `;
-const ScrollWheelItem = styled.a`
+const MenuItem = styled.a`
   width: 200px;
   height: 40px;
   font-size: 1.1rem;
@@ -44,22 +44,24 @@ const ScrollWheelItem = styled.a`
 
 `;
 
-export function ScrollWheel({ items, selectedIndex, setSelectedIdx }) {
+export function Menu({ items, selectedIndex, setSelectedIdx }: { items: any, selectedIndex: any, setSelectedIdx: any }) {
   useEffect(() => {
     console.log(selectedIndex)
   }, [selectedIndex])
   return (
-    <ScrollWheelWrapper>
-      {items.map((item, index) => (
-        <ScrollWheelItem
+    <MenuWrapper>
+      {items.map((item: {
+        section: any; id: Key; title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal;
+      }, index: any) => (
+        <MenuItem
           key={item.id}
           href={`#${item.id}`}
-          onClick={({ target }) => setSelectedIdx(item.id)}
-          className={item.id == selectedIndex ? 'selected font-face-gm' : 'font-face-gm'}
+          onClick={() => setSelectedIdx(item)}
+          className={item.section == selectedIndex ? 'selected font-face-gm' : 'font-face-gm'}
         >
           {item.title}
-        </ScrollWheelItem>
+        </MenuItem>
       ))}
-    </ScrollWheelWrapper>
+    </MenuWrapper>
   );
 }

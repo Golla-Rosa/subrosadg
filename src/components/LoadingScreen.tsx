@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AnimatedRose } from '../../assets/AnimatedRose';
+import { AnimatedRose } from '../assets/AnimatedRose';
 
 export function SplashScreen({ children }: { children: any }) {
     const [showSplash, setShowSplash] = useState(true);
@@ -7,7 +7,7 @@ export function SplashScreen({ children }: { children: any }) {
     useEffect(() => {
         setTimeout(() => {
             setShowSplash(false);
-        }, 100);
+        }, 600);
     }, []);
 
     return showSplash ? (
