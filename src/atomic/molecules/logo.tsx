@@ -8,12 +8,12 @@ const SLogo = styled.div`
     justify-content: center;
     &.splash {
         width: 100%;
-      
+
         }
 `
 
 const SImg = styled.img`
-    width: 350px;
+    width: 80%;
     height: auto;
     &.splash {
     width: 100%;
@@ -24,11 +24,11 @@ const SImg = styled.img`
       
         }
 `
-function Logo({ splash }: { splash: any }) {
+function Logo({ splash, img }: { splash: any, img: string }) {
     console.log("🚀 ~ file: logo.tsx:26 ~ Logo ~ splash", splash)
     return (
         <SLogo className={splash ? "splash" : null} style={{}}>
-            <SImg className={splash ? "splash" : null}  />
+            <SImg src={img} className={splash ? "splash" : null}  />
         </SLogo>
     )
 }

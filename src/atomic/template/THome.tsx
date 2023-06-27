@@ -6,6 +6,14 @@ import Content from '../organisms/Content'
 import Navbar from '../organisms/Navbar'
 
 
+const SHome = styled.div`
+  display: flex;
+  @media (max-width: 1503px) {
+    flex-direction: column;
+
+  }
+
+`
 
 function THome({ sections }: { sections: Section[] }) {
   const [selectedSectionId, setSelectedSectionId] = useState('0');
@@ -15,13 +23,13 @@ function THome({ sections }: { sections: Section[] }) {
   }
 
   return (
-    <div>
+    <SHome>
 
       <Navbar selectedIndex={selectedSectionId} sections={sections} changeSection={handleSectionChange} ></Navbar>
-     
+
       <Content sections={sections} changeSection={handleSectionChange}></Content>
 
-    </div>
+    </SHome>
   )
 }
 

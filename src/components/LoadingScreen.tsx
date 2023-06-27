@@ -7,7 +7,7 @@ export function SplashScreen({ children }: { children: any }) {
     useEffect(() => {
         setTimeout(() => {
             setShowSplash(false);
-        }, 600);
+        }, 1500);
     }, []);
 
     return showSplash ? (

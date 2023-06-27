@@ -5,7 +5,7 @@ const MenuWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 20.0625rem;
   height: 200px;
   border-radius: 100px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

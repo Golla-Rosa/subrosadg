@@ -20,8 +20,8 @@ const SContent = styled.div`
 font-size: 2.6vw;
 width: 80%;
 height: 100vh;
-
-margin: auto;
+// background: url("https://picsum.photos/seed/picsum/2500/1000");
+// margin: auto;
 }
 `
 function Content({ sections, changeSection }: { sections: Section[], changeSection: any }) {
