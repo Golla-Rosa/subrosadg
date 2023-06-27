@@ -1,5 +1,8 @@
-# Subrosa DC website
 
-## Commands 
+```
+npm i
+```
 
-In VSCode, if JSX HTML is in error execute 'Ctrl' + 'Shift' + 'P' typing "Developer: Realod Window"
+```
+npm run start
+```
